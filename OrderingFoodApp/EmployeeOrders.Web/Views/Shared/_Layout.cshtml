@@ -1,0 +1,56 @@
+﻿@using EmployeeOrders.Web.Models
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - EmployeeOrders</title>
+	<script src="~/lib/jquery/dist/jquery.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+	<header>
+		<nav class="navbar-expand navbar-toggable-sm navbar-dark border-bottom box-shadow">
+			<div class="container">
+				<nav class="navbar navbar-expand-lg">
+
+					<a class="navbar-brand" asp-action="Index" asp-controller="Home">
+						@*<img src="~/Content/logo.png" width="25" height="25" style="transform: scale(-1, 1)" class="d-inline-block align-top" alt="">*@
+						ABRAKADABRA
+					</a>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					</div>
+					<div class="pull-right">
+						@if (User.IsInRole(Roles.Purchaser))
+						{
+							<a class="btn btn-secondary my-2 my-sm-0" asp-controller="User" asp-action="Orders">All Orders</a>
+						}
+						@if (User.IsInRole(Roles.Administrator))
+						{
+							<a class="btn btn-secondary my-2 my-sm-0" asp-controller="User" asp-action="Users">All users</a>
+						}
+						@if (!User.Identity.IsAuthenticated)
+						{
+							<a class="btn btn-success my-2 my-sm-0" asp-controller="User" asp-action="LogIn">Log In</a>
+							<a class="btn btn-success my-2 my-sm-0" asp-controller="User" asp-action="Register">Register</a>
+						}
+						else
+						{
+							<a class="btn btn-danger my-2 my-sm-0" asp-controller="User" asp-action="LogOut">Log Out</a>
+						}
+					</div>
+				</nav>
+			</div>
+		</nav>
+	</header>
+	@RenderBody()
+	<div class="card-footer">
+		<p>&copy;Abracadabra - @DateTime.Now.Year</p>
+	</div>
+</body>
+</html>
+

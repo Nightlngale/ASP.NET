@@ -1,0 +1,39 @@
+﻿@using EmployeeOrders.Web.Models
+@model EmployeeOrders.Web.Models.ViewModels.OrderViewModel
+@inject EmployeeOrders.Web.Models.EmployeeOrdersContext _context
+@{
+	ViewData["Title"] = "MakeOrder";
+}
+
+<div class="container col-sm-4" style="margin-top:60px;margin-bottom:60px; ">
+	<div class="card border">
+		<div class="card-header">
+			<h2><strong>My order</strong></h2>
+		</div>
+		<div class="card-body">
+			<form asp-action="MakeOrder" method="post">
+				<div class="form-group">
+					<label asp-for="Food_Id"></label>
+					<select input class="form-control" asp-for="Food_Id" autofocus>
+						<option></option>
+						@foreach (var item in _context.Food)
+						{
+							<option value="@item.Id">@item.Name (price - @item.Price.ToString("0.##") yan)</option>
+						}
+					</select>
+				</div>
+				<div class="form-group">
+					<label asp-for="Drink_Id"></label>
+					<select input class="form-control" asp-for="Drink_Id" autofocus>
+						<option></option>
+						@foreach (var item in _context.Drink)
+						{
+							<option value="@item.Id">@item.Name (price - @item.Price.ToString("0.##") yan)</option>
+						}
+					</select>
+				</div>
+				<input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Submit" />
+			</form>
+		</div>
+	</div>
+</div>
