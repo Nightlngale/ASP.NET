@@ -5,10 +5,11 @@ This is my first asp.net project
 
 # Explanation 
 
-The goal of the project is to organise work on food court. 
-Every employee has section "Create order". In that secion they
-can choose 1 drink and 1 food. The employee "purchaser" has
-section "Orders" with list of orders(all or today`s)
+Imagine that you are the president of a huge corporation with a staff of several hundred or maybe even a thousand people. Your main target is to make money. According to some research average employee spend more than expected time for lunch.
+In case where company has own dinner room, chefs prepare some much dishes to satisfy everyone, although they probably do not know which exactly each employee want. 
+The goal of the project is to organize work on food court. Every employee has section "Create order". In that section, they can choose one drink and one food. 
+After that all orders analyses and could be send to food court. Now chefs know what exactly cook and how to save money.
+
 
 # Technologies 
 
